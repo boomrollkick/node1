@@ -1,0 +1,31 @@
+<% layout('layout') -%>
+
+ADD_ARTICLE
+<form method="post" action="/articles/add">
+    <div class="form-group">
+
+       <%if (errors) { %>
+          <ul class="errors">
+             <% errors.forEach(function(error) { %>
+                <li class="alert alert-danger"><%= error.msg %></li>
+            <% }); %>
+            </ul>
+        <% } %>
+         <label>Title</label>
+        <input class="form-control" name="title" type="text" />
+        <label>Body</label>
+        <input class="form-control" name="author" type="author" />
+
+        <label> Category</label>
+        <div class="form-group">
+            <textarea class="form-control" id="article_body" name="body">
+                  <%if (content) { %>
+                    <%= content %>
+                <% } %>
+            </textarea>
+        </div>
+        <input class="btn btn-primary" name="submit" type="submit" value="Save" />
+
+        <a class="btn btn-default" href='/manage/articles'>Back</a> 
+    </div>
+</form>

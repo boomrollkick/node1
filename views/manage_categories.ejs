@@ -1,0 +1,21 @@
+<% layout('layout') -%>
+MANAGE CATEGORY
+<a href="/manage/categories/add">Add Category</a>
+<h1><%= title %></h1>
+
+<a href="/manage/articles">Manage Articles</a>
+
+<table class='table table-striped'>
+    <tr>
+        <th>Category Title</th>
+        <th></th>
+    </tr>
+      <% categories.forEach(function(category, i) { %>
+        <tr>
+            <td><%= category.title %></td>
+            <td><a href='/manage/categories/edit/<%= category._id %>' class="btn btn-tiny btn-default">Edit</a></td>
+        </tr>
+    <% }); %>
+
+</table>
+           

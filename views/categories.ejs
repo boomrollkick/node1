@@ -1,0 +1,20 @@
+<% layout('layout') -%>
+CATEGORIES
+<content>
+    <div class="spacer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"></div>
+                <h1>Title</h1>
+                
+                <ul class="list-group">
+                <% categories.forEach(function(category, i) { %>
+                    <li class="list-group-item">
+                        <a href="articles/category/<%= category._id %>"><%= category.title %></a>
+                    </li>
+                <% }); %>
+                </ul>    
+            </div>
+        </div>
+    </div>
+</content>

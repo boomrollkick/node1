@@ -1,0 +1,33 @@
+<% layout('layout') -%>
+ADD-CAT
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"></div>
+            <h1>Title</h1>
+            <form method="post" action="/categories/add">
+                    <div class="form-group">
+                      <%if (locals.errors) { %>
+                          <ul class="errors">
+                             <% errors.forEach(function(error) { %>
+                                <li class="alert alert-danger"><%= error.msg %></li>
+                            <% }); %>
+                            </ul>
+                        <% } %>
+                         <label>Title</label>
+                        <input class="form-control" name="title" type="text" />
+                        <label>Description</label>
+                        <div class="form-group">
+                            <textarea class="form-control" id="body" name="body">
+
+                                  <%if (locals.description) { %>
+                                    <%= description %>
+                                  <% } %>
+                            </textarea>
+                        </div>
+                        <input class="btn btn-primary" name="submit" type="submit" value="Save" />
+                        
+                        <a class="btn btn-default" href='/manage/categories'>Back</a> 
+                    </div>
+                </form>
+        </div>
+    </div>
